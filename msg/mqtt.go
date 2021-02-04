@@ -24,6 +24,8 @@ func (m *Msg) Connect() error {
 	opts := mqtt.NewClientOptions()
 	opts.AddBroker(m.cfg.BrokerDsn)
 	opts.SetClientID(m.cfg.ClientID)
+	opts.SetUsername(m.cfg.BrokerUsername)
+	opts.SetPassword(m.cfg.BrokerPassword)
 	opts.SetDefaultPublishHandler(m.MessageHandler())
 	opts.OnConnect = m.ConnectHandler()
 	opts.OnConnectionLost = m.ConnectionLostHandler()
