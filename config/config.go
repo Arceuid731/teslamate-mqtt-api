@@ -35,6 +35,9 @@ func NewConfig() *Config {
 		log.Fatal().Msg("MQTT_HOST environment variable is required.")
 	}
 	c.BrokerDsn = fmt.Sprintf("tcp://%s:1883", mqttHost)
+	
+	c.BrokerUsername = os.Getenv("MQTT_USERNAME")
+	c.BrokerPassword = os.Getenv("MQTT_PASSWORD")
 
 	c.ApiKey = os.Getenv("API_KEY")
 	c.DistanceUnit = os.Getenv("DISTANCE_UNIT")
