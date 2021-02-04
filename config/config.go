@@ -10,6 +10,8 @@ import (
 type Config struct {
 	BrokerDsn       string
 	ApiKey          string
+	BrokerUsername	string
+	BrokerPassword	string
 	DistanceUnit    string
 	TemperatureUnit string
 	ClientID        string
